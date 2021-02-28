@@ -1,0 +1,10 @@
+stages:
+- test
+
+test:syntax:
+  stage: test
+  image: overtrue/phplint:latest
+  script:
+  - phplint
+  tags:
+  - test
