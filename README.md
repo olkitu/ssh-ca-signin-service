@@ -24,7 +24,7 @@ Deploy stack to Swarm with `docker stack deploy -c docker-compose.yml` command.
 version: "3.8"
 services:
   ssh-ca-sign-service:
-    image: olkitu/ssh-ca-signing-service
+    image: olkitu/ssh-ca-signin-service
     ports:
     - 22:22
     environment:
