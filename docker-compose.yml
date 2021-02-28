@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  ssh_ca_server:
+    build: .
+    ports:
+    - "2222:22"
+    secrets:
+    - ssh_ca_private
+    env_file: .env
+  mariadb:
+    image: mariadb
+    ports:
+    - "3306:3306"
+    env_file: .env
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+    - ./sql:/docker-entrypoint-initdb.d
+
+secrets:
+  ssh_ca_private:
+    file: ssh_ca_private.key
