@@ -2,6 +2,7 @@ version: '3.8'
 services:
   ssh_ca_server:
     build: .
+    image: olkitu/ssh-ca-signin-service
     ports:
     - "2222:22"
     secrets:

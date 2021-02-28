@@ -13,5 +13,5 @@ RUN echo "ALL ALL=(ALL) NOPASSWD: /usr/local/bin/sign-ssh-user-cert.sh" | EDITOR
 
 COPY docker-entrypoint.sh /
 RUN chmod 744 docker-entrypoint.sh
-ENTRYPOINT [ "/docker-entrypoint.sh" ]
+ENTRYPOINT [ "bash", "/docker-entrypoint.sh" ]
 CMD [ "/usr/sbin/sshd", "-D", "-e" ]

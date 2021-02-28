@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VALIDITY="-5m:+1d"
+VALIDITY="${USERCERT_VALIDITY}"
 CA_PATH=/etc/ssh/ssh_ca
 TIMESTAMP=`date +%s`
 
@@ -13,6 +13,10 @@ fi
 if [ ! -f $CA_PATH ]; then
     echo "CA not found"
     exit 1
+fi
+
+if [ -z "$USERCERT_VALIDITY" ]; then
+    USERCERT_VALIDITY="-5m:1d"
 fi
 
 USERNAME=$SUDO_USER
@@ -27,7 +31,7 @@ if [ ! -f $SSHKEY ]; then
     exit 1
 fi
 
-PRINCIPALS=`php /usr/local/bin/get_user_principals.php --username=$USERNAME`
+PRINCIPALS=`/usr/local/bin/php /usr/local/bin/get_user_principals.php --username=$USERNAME`
 
 # Sign in and write command to comment
 COMMENT=`ssh-keygen -s $CA_PATH -I $USERNAME -n $PRINCIPALS -V $VALIDITY -z $TIMESTAMP $SSHKEY 2>&1`
