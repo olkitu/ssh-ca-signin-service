@@ -118,7 +118,7 @@ Now your computer trust SSH CA Host Certificate when connect to SSH when you con
 Finally you can now sign your Host Public key with SSH CA Certificate. Change file name `id_rsa-cert.pub` to your public key name if it's different than default.
 
 ```shell
-ssh username@container_ip "sudo /usr/local/bin/sign-ssh-user-cert.sh" > ~/.ssh/id_rsa-cert.pub
+ssh username@container "sudo /usr/local/bin/sign-ssh-user-cert.sh" > ~/.ssh/id_rsa-cert.pub
 ```
 
-And now you should able access to `root` use of server with SSH CA signed public keypair. 
+And now you should able access to server with `root` user and client keys.
