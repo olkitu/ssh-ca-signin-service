@@ -52,5 +52,5 @@ foreach($principals as $key) {
     array_push($principal_names, get_principal_name($key));
 }
 
-echo implode(" ", $principal_names);
+echo implode(",", $principal_names);
 ?>

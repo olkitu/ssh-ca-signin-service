@@ -1,6 +1,6 @@
 # SSH-CA Signin Service
 
-This is for sign user and assing principals. 
+SSH CA help you to manage SSH public keys in central database without copying all keys to every servers `authorized_keys` file. With principals you can allow access only certain servers. Also with SSH CA you can verify you access to correct server without seeing warning on first connection.
 
 Requirements:
 
@@ -72,7 +72,7 @@ Add principals
 INSERT INTO principals (name) VALUES ('admin')
 ```
 
-Add user
+Add user to database with SSH public key and principal ID.
 
 ```sql
 INSERT INTO clients (username, pubkey,principals) VALUES ('username','ssh-rsa ...','1');

@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 VALIDITY="${USERCERT_VALIDITY}"
 CA_PATH=/etc/ssh/ssh_ca
