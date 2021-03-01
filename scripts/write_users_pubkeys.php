@@ -31,13 +31,13 @@ function create_users() {
         while ($row = $sql->fetch()) {
             $username = $row['username'];
 
-            exec('bash /usr/local/bin/create_user.sh '. $username);
+            exec(escapeshellcmd('bash /usr/local/bin/create_user.sh '. escapeshellarg($username)));
 
             $keyfile = fopen('/home/'.$username.'/.ssh/authorized_keys', 'w');
             fwrite($keyfile,$row['pubkey']);
             fclose($keyfile);
 
-            exec('bash /usr/local/bin/set_users_permissions.sh '. $username);
+            exec(escapeshellcmd('bash /usr/local/bin/set_users_permissions.sh '. escapeshellarg($username)));
 
         }
     }
