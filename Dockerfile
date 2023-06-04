@@ -1,4 +1,4 @@
-FROM php:8.0-cli-alpine
+FROM php:8.1.18-cli-alpine
 
 # Install OpenSSH server and PHP PDO MySQL
 RUN apk --no-cache add openssh bash sudo gettext moreutils \
